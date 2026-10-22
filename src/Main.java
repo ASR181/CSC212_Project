@@ -1,3 +1,5 @@
 public class Main {
-    System.out.println();
+    public static void main(){
+        System.out.println();
+    }
 }
