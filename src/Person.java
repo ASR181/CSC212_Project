@@ -32,8 +32,8 @@ public abstract class Person implements IPerson {
             throw new IllegalArgumentException("Phone number must consist of 10 digits!");
 
         for(int i = 0; i < phoneNumber.length(); i++){
-            char e = phoneNumber.charAt(i);        // going through each character in the string
-            if(e > '9' || e < '0')          // checking for range (for english character or any other symbol, ASCII code is never in this range)
+            char letter = phoneNumber.charAt(i);        // going through each character in the string
+            if(letter > '9' || letter < '0')          // checking for range (for english character or any other symbol, ASCII code is never in this range)
                 throw new IllegalArgumentException("Phone number must consist of only numeric characters!");
         }
         this.phoneNumber = phoneNumber;
