@@ -1,14 +1,10 @@
-/**
- * Represents a driver in the ride-sharing system.
- */
+// Represents a driver
 public class Driver extends Person implements IDriver {
 
     private String vehiclePlate;
     private VehicleType vehicleType;
 
-    /**
-     * Creates a new driver
-     */
+    // Creates a driver
     public Driver(int id, String name, String phoneNumber,
                   String vehiclePlate, VehicleType vehicleType) {
 
@@ -17,16 +13,12 @@ public class Driver extends Person implements IDriver {
         this.setVehicleType(vehicleType);
     }
 
-    /**
-     * Returns the vehicle plate
-     */
+    // Returns the vehicle plate
     public String getVehiclePlate() {
         return vehiclePlate;
     }
 
-    /**
-     * Sets the vehicle plate
-     */
+    // Sets the vehicle plate
     public void setVehiclePlate(String vehiclePlate) {
 
         if (vehiclePlate == null || vehiclePlate.length() != 7) {
@@ -50,23 +42,17 @@ public class Driver extends Person implements IDriver {
         this.vehiclePlate = vehiclePlate;
     }
 
-    /**
-     * Returns the vehicle type
-     */
+    // Returns the vehicle type
     public VehicleType getVehicleType() {
         return vehicleType;
     }
 
-    /**
-     * Sets the vehicle type
-     */
+    // Sets the vehicle type
     public void setVehicleType(VehicleType vehicleType) {
         this.vehicleType = vehicleType;
     }
 
-    /**
-     * Compares drivers by their IDs
-     */
+    // Compares drivers by ID
     public int compareTo(IDriver other) {
 
         if (getId() < other.getId()) {
@@ -78,9 +64,7 @@ public class Driver extends Person implements IDriver {
         }
     }
 
-    /**
-     * Returns the driver's information
-     */
+    // Returns driver information
     public String toString() {
         return "Driver Info:\n\tID: " + getId()
                 + " | NAME: " + getName()
