@@ -39,8 +39,8 @@ public abstract class Person implements IPerson {
         this.phoneNumber = phoneNumber;
     }
 
-    public LinkedList<IRide> rideHistory(){
-        return rideHistory;
+    public LinkedList<IRide> getRideHistory() {
+    return rideHistory;
     }
 
     public String toString(){
