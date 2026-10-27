@@ -1,7 +1,5 @@
-/**
- * Represents a date and time
- * The values cannot be changed after the object is created
- */
+
+// Represents a date and time
 public class DateTime implements IDateTime {
 
     private final int year;
@@ -10,9 +8,7 @@ public class DateTime implements IDateTime {
     private final int hour;
     private final int minute;
 
-    /**
-     * Creates a date and time and checks that the values are valid
-     */
+    // Creates a date and time
     public DateTime(int year, int month, int day, int hour, int minute) {
 
         if (month < 1 || month > 12) {
@@ -38,53 +34,38 @@ public class DateTime implements IDateTime {
         this.minute = minute;
     }
 
-    /**
-     * Returns the year
-     */
+    // Returns the year
     public int getYear() {
         return year;
     }
 
-    /**
-     * Returns the month
-     */
+    // Returns the month
     public int getMonth() {
         return month;
     }
 
-    /**
-     * Returns the day
-     */
+    // Returns the day
     public int getDay() {
         return day;
     }
 
-    /**
-     * Returns the hour
-     */
+    // Returns the hour
     public int getHour() {
         return hour;
     }
 
-    /**
-     * Returns the minute
-     */
+    // Returns the minute
     public int getMinute() {
         return minute;
     }
 
-    /**
-     * Formats the date and time as MM/DD/YYYY HH:MM
-     */
+    // Formats the date and time
     public String format() {
         return String.format("%02d/%02d/%04d %02d:%02d",
                 month, day, year, hour, minute);
     }
 
-    /**
-     * Compares two dates and times in chronological order
-     * Returns a negative number, zero, or a positive number
-     */
+    // Compares two dates and times
     public int compareTo(IDateTime other) {
 
         if (year != other.getYear()) {
@@ -125,9 +106,7 @@ public class DateTime implements IDateTime {
         return 0;
     }
 
-    /*
-     * Returns the formatted date and time as a string
-     */
+    // Returns the date and time as a string
     public String toString() {
         return format();
     }
