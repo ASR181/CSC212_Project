@@ -5,11 +5,12 @@ public abstract class Person implements IPerson {
     private String phoneNumber;
     private LinkedList<IRide> rideHistory;
 
-    public Person(int id, String name, String phoneNumber){
-        this.id = id;
-        setName(name);
-        setPhoneNumber(phoneNumber);
-    }
+    public Person(int id, String name, String phoneNumber) {
+    this.id = id;
+    rideHistory = new LinkedList<IRide>();
+    setName(name);
+    setPhoneNumber(phoneNumber);
+}
 
     public int getId(){
         return id;
