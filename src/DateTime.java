@@ -1,4 +1,3 @@
-```java
 /**
  * Represents a date and time
  * The values cannot be changed after the object is created
@@ -133,4 +132,3 @@ public class DateTime implements IDateTime {
         return format();
     }
 }
-```
