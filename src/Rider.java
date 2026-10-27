@@ -1,4 +1,3 @@
-
 /**
  * Represents a rider in the ride-sharing system
  */
