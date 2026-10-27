@@ -1,14 +1,10 @@
-/**
- * Represents a rider in the ride-sharing system
- */
+/// Represents a rider.
 public class Rider extends Person implements IRider {
 
     private String email;
     private String homeCity;
 
-    /**
-     * Creates a rider with personal information
-     */
+    // Creates a rider
     public Rider(int id, String name, String email,
                  String phoneNumber, String homeCity) {
 
@@ -17,37 +13,27 @@ public class Rider extends Person implements IRider {
         this.homeCity = homeCity;
     }
 
-    /**
-     * Returns the rider's email
-     */
+    // Returns the email
     public String getEmail() {
         return email;
     }
 
-    /**
-     * Sets the rider's email
-     */
+    // Sets the email
     public void setEmail(String email) {
         this.email = email;
     }
 
-    /**
-     * Returns the rider's home city
-     */
+    // Returns the home city
     public String getHomeCity() {
         return homeCity;
     }
 
-    /**
-     * Sets the rider's home city
-     */
+    // Sets the home city
     public void setHomeCity(String homeCity) {
         this.homeCity = homeCity;
     }
 
-    /**
-     * Compares riders by their IDs
-     */
+    // Compares riders by ID
     public int compareTo(IRider other) {
 
         if (getId() < other.getId()) {
@@ -59,9 +45,7 @@ public class Rider extends Person implements IRider {
         }
     }
 
-    /**
-     * Returns the rider's information as a string
-     */
+    // Returns rider information
     public String toString() {
         return "Rider Info:\n\tID: " + getId()
                 + " | NAME: " + getName()
