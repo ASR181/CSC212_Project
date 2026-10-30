@@ -1,12 +1,11 @@
-/// Represents a rider.
+// Represents a rider
 public class Rider extends Person implements IRider {
 
     private String email;
     private String homeCity;
 
     // Creates a rider
-    public Rider(int id, String name, String email,
-                 String phoneNumber, String homeCity) {
+    public Rider(int id, String name, String email,String phoneNumber, String homeCity) {
 
         super(id, name, phoneNumber);
         this.email = email;
@@ -46,11 +45,10 @@ public class Rider extends Person implements IRider {
     }
 
     // Returns rider information
+    @Override
     public String toString() {
-        return "Rider Info:\n\tID: " + getId()
-                + " | NAME: " + getName()
-                + " | PHONE NUMBER: " + getPhoneNumber()
-                + " | EMAIL: " + email
+        return super.toString()
+                + "\n\tEMAIL: " + email
                 + " | HOME CITY: " + homeCity + ".";
     }
 }
