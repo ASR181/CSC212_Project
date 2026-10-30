@@ -65,11 +65,10 @@ public class Driver extends Person implements IDriver {
     }
 
     // Returns driver information
+    @Override
     public String toString() {
-        return "Driver Info:\n\tID: " + getId()
-                + " | NAME: " + getName()
-                + " | PHONE NUMBER: " + getPhoneNumber()
-                + " | VEHICLE PLATE: " + vehiclePlate
+        return super.toString()
+                + "\n\tVEHICLE PLATE: " + vehiclePlate
                 + " | VEHICLE TYPE: " + vehicleType + ".";
     }
 }
