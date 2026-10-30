@@ -76,11 +76,11 @@ public class Main {
                     break;
 
                 case 0:
-                    System.out.println("Goodbye!");
+                    System.out.println("Goodbye");
                     break;
 
                 default:
-                    System.out.println("Invalid choice.");
+                    System.out.println("Invalid choice");
             }
 
         } while (choice != 0);
@@ -108,7 +108,7 @@ public class Main {
     private static <T> void printList(LinkedList<T> list) {
 
         if (list == null || list.empty()) {
-            System.out.println("No results found.");
+            System.out.println("No results found");
             return;
         }
 
@@ -138,13 +138,13 @@ public class Main {
             Rider rider = new Rider(id, name, email, phone, city);
 
             if (system.addRider(rider)) {
-                System.out.println("Rider added successfully.");
+                System.out.println("Rider added successfully");
             } else {
-                System.out.println("Failed to add rider.");
+                System.out.println("Failed to add rider");
             }
 
         } catch (IllegalArgumentException e) {
-            System.out.println("Invalid rider information.");
+            System.out.println("Invalid rider information");
         }
     }
 
@@ -161,13 +161,13 @@ public class Main {
             Driver driver = new Driver(id, name, phone, plate, type);
 
             if (system.addDriver(driver)) {
-                System.out.println("Driver added successfully.");
+                System.out.println("Driver added successfully");
             } else {
-                System.out.println("Failed to add driver.");
+                System.out.println("Failed to add driver");
             }
 
         } catch (IllegalArgumentException e) {
-            System.out.println("Invalid driver information.");
+            System.out.println("Invalid driver information");
         }
     }
 
@@ -175,15 +175,12 @@ public class Main {
     private static VehicleType readVehicleType() {
 
         while (true) {
-            String type = readText(
-                    "Enter vehicle type (SEDAN, LUXURY_SEDAN, SUV, VAN): ")
-                    .toUpperCase()
-                    .replace(' ', '_');
+            String type = readText("Enter vehicle type (SEDAN, LUXURY_SEDAN, SUV, VAN): ").toUpperCase().replace(' ', '_');
 
             try {
                 return VehicleType.valueOf(type);
             } catch (IllegalArgumentException e) {
-                System.out.println("Invalid vehicle type. Try again.");
+                System.out.println("Invalid vehicle type, Try again");
             }
         }
     }
@@ -194,23 +191,20 @@ public class Main {
         String type;
 
         while (true) {
-            type = readText("Enter ride type (PRIVATE or SHARED): ")
-                    .toUpperCase();
+            type = readText("Enter ride type (PRIVATE or SHARED): ").toUpperCase();
 
             if (type.equals("PRIVATE") || type.equals("SHARED")) {
                 break;
             }
 
-            System.out.println("Please enter PRIVATE or SHARED.");
+            System.out.println("Please enter PRIVATE or SHARED");
         }
 
         String pickup = readText("Enter pickup location: ");
 
-        IDateTime pickupTime = readDateTime(
-                "Enter pickup date/time (MM/DD/YYYY HH:MM): ");
+        IDateTime pickupTime = readDateTime("Enter pickup date/time (MM/DD/YYYY HH:MM): ");
 
-        IDateTime dropoffTime = readDateTime(
-                "Enter drop-off date/time (MM/DD/YYYY HH:MM): ");
+        IDateTime dropoffTime = readDateTime("Enter drop-off date/time (MM/DD/YYYY HH:MM): ");
 
         String dropoff = readText("Enter drop-off location: ");
         int driverId = readInt("Enter driver ID: ");
@@ -221,16 +215,14 @@ public class Main {
 
             int riderId = readInt("Enter rider ID: ");
 
-            success = system.schedulePrivateRide(
-                    pickup, pickupTime, dropoffTime,
-                    dropoff, riderId, driverId);
+            success = system.schedulePrivateRide(pickup, pickupTime, dropoffTime,dropoff, riderId, driverId);
 
         } else {
 
             int count = readInt("Enter number of riders (at least 2): ");
 
             while (count < 2) {
-                System.out.println("A shared ride needs at least 2 riders.");
+                System.out.println("A shared ride needs at least 2 riders");
                 count = readInt("Enter number of riders: ");
             }
 
@@ -238,19 +230,16 @@ public class Main {
 
             // Read rider IDs
             for (int i = 0; i < count; i++) {
-                riderIds[i] = readInt(
-                        "Enter rider ID " + (i + 1) + ": ");
+                riderIds[i] = readInt("Enter rider ID " + (i + 1) + ": ");
             }
 
-            success = system.scheduleSharedRide(
-                    pickup, pickupTime, dropoffTime,
-                    dropoff, riderIds, driverId);
+            success = system.scheduleSharedRide(pickup, pickupTime, dropoffTime,dropoff, riderIds, driverId);
         }
 
         if (success) {
-            System.out.println("Ride added successfully.");
+            System.out.println("Ride added successfully");
         } else {
-            System.out.println("Failed to add ride.");
+            System.out.println("Failed to add ride");
         }
     }
 
@@ -274,8 +263,7 @@ public class Main {
                 return new DateTime(year, month, day, hour, minute);
 
             } catch (RuntimeException e) {
-                System.out.println(
-                        "Invalid date/time. Example: 10/30/2026 14:30");
+                System.out.println("Invalid date/time. Example: 10/30/2026 14:30");
             }
         }
     }
@@ -289,7 +277,7 @@ public class Main {
             try {
                 return Integer.parseInt(input.nextLine().trim());
             } catch (NumberFormatException e) {
-                System.out.println("Enter a valid number.");
+                System.out.println("Enter a valid number");
             }
         }
     }
