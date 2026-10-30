@@ -34,19 +34,17 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    printList(system.getAllRiders(), "No riders found.");
+                    printList(system.getAllRiders(), "No riders found");
                     break;
 
                 case 2:
                     String city = readText("Enter home city: ");
-                    printList(system.searchRidersByHomeCity(city),
-                            "No riders found for this city.");
+                    printList(system.searchRidersByHomeCity(city),"No riders found for this city");
                     break;
 
                 case 3:
                     String riderName = readText("Enter full name: ");
-                    printList(system.searchRidersByName(riderName),
-                            "No riders found with this name.");
+                    printList(system.searchRidersByName(riderName),"No riders found with this name");
                     break;
 
                 case 4:
@@ -54,13 +52,12 @@ public class Main {
                     break;
 
                 case 5:
-                    printList(system.getAllDrivers(), "No drivers found.");
+                    printList(system.getAllDrivers(), "No drivers found");
                     break;
 
                 case 6:
                     VehicleType vehicleType = readVehicleType();
-                    printList(system.searchDriversByVehicleType(vehicleType),
-                            "No drivers found for this vehicle type.");
+                    printList(system.searchDriversByVehicleType(vehicleType),"No drivers found for this vehicle type");
                     break;
 
                 case 7:
@@ -68,31 +65,27 @@ public class Main {
                     break;
 
                 case 8:
-                    printList(system.getAllRidesAlphabetically(),
-                            "No rides found.");
+                    printList(system.getAllRidesAlphabetically(),"No rides found");
                     break;
 
                 case 9:
                     String pickupLocation =
                             readText("Enter pickup location: ");
                     printList(
-                            system.searchRidesByPickupLocation(pickupLocation),
-                            "No rides found at this location.");
+                            system.searchRidesByPickupLocation(pickupLocation),"No rides found at this location");
                     break;
 
                 case 10:
                     String searchName =
                             readText("Enter rider's full name: ");
-                    printList(system.searchRidesByRiderName(searchName),
-                            "No rides found for this rider.");
+                    printList(system.searchRidesByRiderName(searchName),"No rides found for this rider");
                     break;
 
                 case 11:
                     String sharedPickup = readText(
                             "Enter pickup location of the shared ride: ");
                     printList(
-                            system.getSharedRideParticipants(sharedPickup),
-                            "No participants found.");
+                            system.getSharedRideParticipants(sharedPickup),"No participants found");
                     break;
 
                 case 12:
@@ -100,12 +93,12 @@ public class Main {
                     break;
 
                 case 0:
-                    System.out.println("Exiting the program.");
+                    System.out.println("Exiting the program");
                     break;
 
                 default:
                     System.out.println(
-                            "Invalid choice. Please enter a number from 0 to 12.");
+                            "Invalid choice, Please enter a number from 0 to 12");
             }
 
             System.out.println();
@@ -167,10 +160,10 @@ public class Main {
             Rider rider = new Rider(id, name, email, phone, city);
 
             if (system.addRider(rider)) {
-                System.out.println("Rider added successfully.");
+                System.out.println("Rider added successfully");
             } else {
                 System.out.println(
-                        "Failed to add rider. Check the ID and email.");
+                        "Failed to add rider. Check the ID and email");
             }
 
         } catch (IllegalArgumentException e) {
@@ -191,10 +184,9 @@ public class Main {
             Driver driver = new Driver(id, name, phone, plate, type);
 
             if (system.addDriver(driver)) {
-                System.out.println("Driver added successfully.");
+                System.out.println("Driver added successfully");
             } else {
-                System.out.println(
-                        "Failed to add driver. Check the ID and plate.");
+                System.out.println("Failed to add driver, Check the ID and plate");
             }
 
         } catch (IllegalArgumentException e) {
@@ -209,15 +201,12 @@ public class Main {
             System.out.println(
                     "Vehicle types: SEDAN, LUXURY_SEDAN, SUV, VAN");
 
-            String value = readText("Enter vehicle type: ")
-                    .toUpperCase()
-                    .replace(' ', '_');
+            String value = readText("Enter vehicle type: ").toUpperCase().replace(' ', '_');
 
             try {
                 return VehicleType.valueOf(value);
             } catch (IllegalArgumentException e) {
-                System.out.println(
-                        "Invalid vehicle type. Please try again.");
+                System.out.println("Invalid vehicle type,Please try again");
             }
         }
     }
@@ -234,7 +223,7 @@ public class Main {
                 break;
             }
 
-            System.out.println("Enter PRIVATE or SHARED.");
+            System.out.println("Enter PRIVATE or SHARED");
         }
 
         String pickup = readText("Enter pickup location: ");
@@ -266,8 +255,7 @@ public class Main {
                     "Enter number of riders (at least 2): ");
 
             while (count < 2) {
-                System.out.println(
-                        "A shared ride needs at least 2 riders.");
+                System.out.println("A shared ride needs at least 2 riders");
                 count = readInt("Enter number of riders: ");
             }
 
@@ -288,10 +276,9 @@ public class Main {
         }
 
         if (success) {
-            System.out.println("Ride added successfully.");
+            System.out.println("Ride added successfully");
         } else {
-            System.out.println(
-                    "Failed to add ride. Check the IDs and schedule conflicts.");
+            System.out.println("Failed to add ride, Check the IDs and schedule conflicts");
         }
     }
 
@@ -320,12 +307,10 @@ public class Main {
                 int hour = Integer.parseInt(time[0]);
                 int minute = Integer.parseInt(time[1]);
 
-                return new DateTime(
-                        year, month, day, hour, minute);
+                return new DateTime(year, month, day, hour, minute);
 
             } catch (RuntimeException e) {
-                System.out.println(
-                        "Invalid date/time. Example: 10/30/2026 14:30");
+                System.out.println("Invalid date/time, Example: 10/30/2026 14:30");
             }
         }
     }
@@ -338,8 +323,7 @@ public class Main {
             try {
                 return Integer.parseInt(input.nextLine().trim());
             } catch (NumberFormatException e) {
-                System.out.println(
-                        "Please enter a valid whole number.");
+                System.out.println("Please enter a valid whole number");
             }
         }
     }
